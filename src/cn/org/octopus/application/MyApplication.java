@@ -14,10 +14,28 @@ public class MyApplication extends Application {
 	
 	public static String TAG_ACTIVITY_LIFE = "cn.org.octopus.application.activity.life";
 	
+	private static MyApplication INSTANCE;
+	
 	/** 用于数据传递的 Map 集合 */
 	private Map<String, Object> transferMap;
 	/** 用于缓存数据的 Map 集合 */
 	private Map<String, Object> cacheMap; 
+	
+	/**
+	 * 构造方法构造 Application
+	 */
+	public MyApplication() {
+		INSTANCE = this;
+	}
+	
+	/**
+	 * 获取 Application
+	 * 			使用该函数可以在任意位置获取 Application 中的数据
+	 * @return
+	 */
+	public static MyApplication getInstance() {
+		return INSTANCE;
+	}
 	
 	@Override
 	public void onCreate() {
